@@ -1,9 +1,13 @@
-import './App.css';
+import classes from './App.module.css';
+
+import Layout from './components/Layout/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Advanced Civ Calculator</h1>
+    <div className={classes.App}>
+      <Layout>
+
+      </Layout>
     </div>
   );
 }
