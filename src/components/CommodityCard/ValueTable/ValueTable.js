@@ -3,7 +3,7 @@ import React from "react";
 import classes from "./ValueTable.module.css";
 
 const ValueTable = (props) => {
-  const values = [1, 4, 9, 16, 25, 36, 49]; //TODO get from props
+  const values = [...props.values];
   const selectedValue = (props.count > 0) ? values[props.count - 1] : null;
 
   const rowCount = 2; // Always 2;
