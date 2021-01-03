@@ -1,0 +1,18 @@
+.ValueTable {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 8px;
+  box-shadow: 0 2px 3px #ccc;
+}
+
+.ValueTable td, .ValueTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  box-shadow: 0 2px 3px #ccc;
+}
+
+.ValueTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#selectedCell {
+  background-color: blue;
+}
