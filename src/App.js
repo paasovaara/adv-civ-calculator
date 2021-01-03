@@ -1,12 +1,13 @@
-import classes from './App.module.css';
+import classes from "./App.module.css";
 
-import Layout from './components/Layout/Layout';
+import Layout from "./components/Layout/Layout";
+import Wallet from "./containers/Wallet/Wallet";
 
 function App() {
   return (
     <div className={classes.App}>
       <Layout>
-
+        <Wallet></Wallet>
       </Layout>
     </div>
   );

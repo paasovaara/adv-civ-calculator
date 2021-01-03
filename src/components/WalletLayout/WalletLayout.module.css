@@ -1,0 +1,22 @@
+/* Not yet working entirely correctly, see https://stackoverflow.com/questions/46627848/flexbox-responsive-row-column-layout */
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+/* Responsive layout, stack columns on top of each other on smaller screens */
+/*@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}*/
