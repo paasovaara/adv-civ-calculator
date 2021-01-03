@@ -13,5 +13,5 @@
 .ValueTable tr:nth-child(even){background-color: #f2f2f2;}
 
 .SelectedCell {
-  background-color: blue;
+  background-color: goldenrod;
 }
