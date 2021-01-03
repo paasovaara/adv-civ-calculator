@@ -1,0 +1,13 @@
+.CountSelector {
+  display:flex;
+  flex-flow: col;
+}
+
+.CountSelector > button {
+  width: 20%;
+  display: block;
+}
+
+.CountSelector > p {
+  width: 60%;
+}
