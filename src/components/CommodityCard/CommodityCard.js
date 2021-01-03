@@ -9,7 +9,7 @@ const CommodityCard = (props) => {
     <div className={classes.CommodityCard}>
       <h2>{props.type}</h2>
       <CountSelector max={5} />
-      <ValueTable></ValueTable>
+      <ValueTable count={4}></ValueTable>
     </div>
   );
 }
