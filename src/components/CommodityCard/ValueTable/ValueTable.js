@@ -7,13 +7,13 @@ const ValueTable = (props) => {
   const selectedValue = (props.count > 0) ? values[props.count - 1] : null;
 
   const rowCount = 2; // Always 2;
-  const colCount = Math.ceil(values.length / 2);
+  const colCount = Math.ceil(values.length / rowCount);
 
   const createRow = (rowValues) => {
     return rowValues.map((value, index) => {
       const selected = selectedValue === value;
       const cssClass = selected ? classes.SelectedCell : null;
-      return <td className={cssClass}>
+      return <td key={value} className={cssClass}>
           {value}
         </td>;
     });

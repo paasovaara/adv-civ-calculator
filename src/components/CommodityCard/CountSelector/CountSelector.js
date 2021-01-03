@@ -3,15 +3,22 @@ import PropTypes from "prop-types";
 import classes from "./CountSelector.module.css";
 
 const CountSelector = (props) => {
-  const [count, setCount] = useState(0);
+
+  const reduce = () => {
+    props.count > 0 ? props.setCount(props.count - 1): props.setCount(0);
+  }
+
+  const increment = () => {
+    props.count >= props.max ? props.setCount(props.max): props.setCount(props.count + 1)
+  }
 
   return (
     <div className={classes.CountSelector}>
-      <button onClick={() => count > 0 ? setCount(count - 1): setCount(0)}> 
+      <button onClick={reduce}> 
         -
       </button>
-      <p>{count}</p>
-      <button onClick={() => count >= props.max ? setCount(props.max): setCount(count + 1)} >
+      <p>{props.count}</p>
+      <button onClick={increment} >
         +
       </button>
     </div>
@@ -19,7 +26,9 @@ const CountSelector = (props) => {
 };
 
 CountSelector.propTypes = {
-  max: PropTypes.number.isRequired
+  max: PropTypes.number.isRequired,
+  setCount: PropTypes.func.isRequired,
+  count: PropTypes.number.isRequired
 }
 
 export default CountSelector;
