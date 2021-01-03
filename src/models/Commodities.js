@@ -1,5 +1,5 @@
 
-export const CommodityTypes = Object.freeze({
+const CommodityTypes = Object.freeze({
   Ochre: "ochre",
   Hides: "hides",
   Iron: "iron",
@@ -20,48 +20,48 @@ export const CommodityTypes = Object.freeze({
   Ivory: "ivory"
 });
 
-export class Commodity {
-  constructor(type) {
-    this.type = type;
-  }
-
-  static getCount(type) {
-    switch (type) {
-      case Ochre: 
-      case Hides:
-      case Papyrus:
-      case Oil:
-      case Cloth:
-        return 7;
-      case Iron:
-      case Timber:
-      case Grain: 
-        return 8;
-      case Salt:
-        return 9;
-      case Wine:
-      case Bronze: 
-      case Spices:
-        return 6;
-      case Silver:
-      case Resin:
-      case Gems:
-      case Gold:
-        return 5;
-      case Dye:
-      case Ivory:
-        return  4;
-    }
-    throw new Error("Invalid input for Commodity.getCount: ", type);
-  }
-  /*
-  getPrice() {
-    switch (type) {
-      case Ochre: 
-      case Hides:
-        return 1;
-        break;
-      
-    }
-  }*/
+const getCommodity = (type) => {
+  return Commodities.find(c => c.type === type);
 }
+
+const Commodities = Object.freeze([
+  {
+    type: CommodityTypes.Ochre,
+    name: "Ochre",
+    values: [1, 4, 9, 16, 25, 36, 49],
+    count: 7
+  },
+  {
+    type: CommodityTypes.Hides,
+    name: "Hides",
+    values: [1, 4, 9, 16, 25, 36, 49],
+    count: 7
+  },
+  {
+    type: CommodityTypes.Iron,
+    name: "Iron",
+    values: [2, 8, 18, 32, 50, 72, 98, 128],
+    count: 8
+  },
+  {
+    type: CommodityTypes.Papyrus,
+    name: "Papyrus",
+    values: [2, 8, 18, 32, 50, 72, 98],
+    count: 7
+  },
+  {
+    type: CommodityTypes.Salt,
+    name: "Salt",
+    values: [3, 12, 27, 48, 75, 108, 147, 192, 243],
+    count: 9
+  },
+  {
+    type: CommodityTypes.Timber,
+    name: "Timber",
+    values: [3, 12, 27, 48, 75, 108, 147, 192],
+    count: 8
+  },
+]);
+
+export { CommodityTypes, getCommodity };
+export default Commodities;
