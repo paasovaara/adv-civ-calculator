@@ -7,12 +7,12 @@ const CountSelector = (props) => {
 
   return (
     <div className={classes.CountSelector}>
-      <button onClick={() => count >= props.max ? setCount(props.max): setCount(count + 1)} >
-        +
-      </button>
-      <p>{count}</p>
       <button onClick={() => count > 0 ? setCount(count - 1): setCount(0)}> 
         -
+      </button>
+      <p>{count}</p>
+      <button onClick={() => count >= props.max ? setCount(props.max): setCount(count + 1)} >
+        +
       </button>
     </div>
   )
