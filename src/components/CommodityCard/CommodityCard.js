@@ -11,7 +11,12 @@ const CommodityCard = (props) => {
   return (
     <div className={classes.CommodityCard}>
       <h2>{commodity.name}</h2>
-      <CountSelector max={commodity.count} setCount={setCount} count={count}/>
+      <CountSelector 
+        max={commodity.count} 
+        setCount={setCount} 
+        count={count}
+        onIncrement={() => props.onIncrement(commodity)}
+        />
       <ValueTable count={count} values={commodity.values}></ValueTable>
     </div>
   );

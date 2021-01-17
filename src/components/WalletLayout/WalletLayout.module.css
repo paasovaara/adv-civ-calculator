@@ -1,19 +1,24 @@
 /* Not yet working entirely correctly, see https://stackoverflow.com/questions/46627848/flexbox-responsive-row-column-layout */
 
 .WalletLayout {
-  display:flex;
+  display: flex;
   flex-flow: row wrap;
 }
 
-.left{
+.wallet {
+  width: 100%;
+  text-align: center;
+}
+
+.left {
   width:50%;
   /*background-color: red;*/
 }
-.right{
+.right {
   width:50%;
   /*background-color: green;*/
 }
-.center{
+.center {
   width:100%;
   /*background-color: blue;*/
 }

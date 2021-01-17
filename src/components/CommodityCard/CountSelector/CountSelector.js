@@ -10,6 +10,7 @@ const CountSelector = (props) => {
 
   const increment = () => {
     props.count >= props.max ? props.setCount(props.max): props.setCount(props.count + 1)
+    props.onIncrement();
   }
 
   return (
