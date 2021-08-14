@@ -19,6 +19,12 @@ const WalletLayout = () => {
 
   const [wallet, setWallet] = useState(walletState);
 
+  const calcMoney = (oldTotalMoney, commodity, oldCount, newCount) => {
+    const oldValue = (oldCount > 0) ? commodity.values[oldCount - 1] : 0;
+    const newValue = commodity.values[newCount - 1];
+    return oldTotalMoney - oldValue + newValue;
+  }
+
   const incHandler = (commodity) => {
     const counts = {...wallet.cardCounts};
     console.log(counts);
@@ -33,10 +39,7 @@ const WalletLayout = () => {
     const newCount = oldCount + 1;
     counts[commodity.type] = newCount;
 
-    const oldTotalMoney = wallet.money;
-    const oldValue = (oldCount > 0) ? commodity.values[oldCount - 1] : 0;//Ugly, TODO fix
-    const newValue = commodity.values[newCount - 1]; //Ugly, TODO fix
-    const newTotalMoney = oldTotalMoney - oldValue + newValue;
+    const newTotalMoney = calcMoney(wallet.money, commodity, oldCount, newCount);
 
     const newWallet = { money: newTotalMoney, cardCounts: counts};
     setWallet(newWallet);
