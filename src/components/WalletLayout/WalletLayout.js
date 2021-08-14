@@ -21,7 +21,7 @@ const WalletLayout = () => {
 
   const calcMoney = (oldTotalMoney, commodity, oldCount, newCount) => {
     const oldValue = (oldCount > 0) ? commodity.values[oldCount - 1] : 0;
-    const newValue = commodity.values[newCount - 1];
+    const newValue = (newCount > 0) ? commodity.values[newCount - 1] : 0;
     return oldTotalMoney - oldValue + newValue;
   }
 
@@ -35,7 +35,6 @@ const WalletLayout = () => {
       console.error(`WalletLayout:incHandler called for commodity ${commodity} with too large value ${oldCount}`);
       return;
     }
-
     const newCount = oldCount + 1;
     counts[commodity.type] = newCount;
 
@@ -45,12 +44,30 @@ const WalletLayout = () => {
     setWallet(newWallet);
   }
 
-  //TODO add also reduce handler and remove the state from CommodityCard
+  const reduceHandler = (commodity) => {
+    const counts = {...wallet.cardCounts};
+    console.log(counts);
+    const oldCount = counts[commodity.type];
+    console.log(commodity.type, oldCount);
+    
+    if (oldCount === 0) {
+      return;
+    }
+    const newCount = oldCount - 1;
+    counts[commodity.type] = newCount;
+
+    const newTotalMoney = calcMoney(wallet.money, commodity, oldCount, newCount);
+
+    const newWallet = { money: newTotalMoney, cardCounts: counts};
+    setWallet(newWallet);
+  }
+
   const createCommodityCard = (commodityType, className) => {
     return (<div className={className} key={commodityType}>
       <CommodityCard 
         commodity={Commodities[commodityType]} 
-        onIncrement={incHandler}
+        onIncrement={incHandler} 
+        onReduce={reduceHandler}
         />       
     </div>);
   };

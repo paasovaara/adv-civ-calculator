@@ -6,6 +6,7 @@ const CountSelector = (props) => {
 
   const reduce = () => {
     props.count > 0 ? props.setCount(props.count - 1): props.setCount(0);
+    props.onReduce();
   }
 
   const increment = () => {
