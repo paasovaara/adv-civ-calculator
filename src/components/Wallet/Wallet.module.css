@@ -1,11 +1,11 @@
 /* Not yet working entirely correctly, see https://stackoverflow.com/questions/46627848/flexbox-responsive-row-column-layout */
 
-.WalletLayout {
+.Wallet {
   display: flex;
   flex-flow: row wrap;
 }
 
-.wallet {
+.walletTitle {
   width: 100%;
   text-align: center;
 }

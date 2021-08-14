@@ -1,7 +1,7 @@
 import classes from "./App.module.css";
 
 import Layout from "./components/Layout/Layout";
-import Wallet from "./containers/Wallet/Wallet";
+import Wallet from "./components/Wallet/Wallet";
 
 function App() {
   return (

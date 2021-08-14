@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import { CommodityTypes, getCommodity, Commodities } from "../../models/Commodities";
 
 import CommodityCard from "../CommodityCard/CommodityCard";
-import classes from "./WalletLayout.module.css";
+import classes from "./Wallet.module.css";
 
-const WalletLayout = () => {
+const Wallet = () => {
   
   const cardCounts = {};
   for (const [key, value] of Object.entries(Commodities)) {
@@ -82,10 +82,10 @@ const WalletLayout = () => {
   }
 
   return (
-    <div className={classes.WalletLayout}>
-      <p className={classes.wallet}>Combined value: {wallet.money}</p>
+    <div className={classes.Wallet}>
+      <p className={classes.walletTitle}>Combined value: {wallet.money}</p>
       { commodityCards }
     </div>);
 }
 
-export default WalletLayout;
+export default Wallet;
