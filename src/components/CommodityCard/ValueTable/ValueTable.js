@@ -2,6 +2,13 @@ import React from "react";
 
 import classes from "./ValueTable.module.css";
 
+const selectedCellClassLUT = {
+  'Ochre': classes.Ochre,
+  'Hides': classes.Hides,
+  'Papyrus': classes.Papyrus
+}
+
+
 const ValueTable = (props) => {
   const values = [...props.values];
   const selectedValue = (props.count > 0) ? values[props.count - 1] : null;
@@ -12,7 +19,7 @@ const ValueTable = (props) => {
   const createRow = (rowValues) => {
     return rowValues.map((value, index) => {
       const selected = selectedValue === value;
-      const cssClass = selected ? classes.SelectedCell : null;
+      const cssClass = selected ? [classes.SelectedCell, selectedCellClassLUT[props.id]].join(' ') : null;
       return <td key={value} className={cssClass}>
           {value}
         </td>;

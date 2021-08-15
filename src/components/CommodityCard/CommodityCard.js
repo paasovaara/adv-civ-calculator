@@ -18,7 +18,11 @@ const CommodityCard = (props) => {
         onIncrement={() => props.onIncrement(commodity)}
         onReduce={() => props.onReduce(commodity)}
         />
-      <ValueTable count={count} values={commodity.values}></ValueTable>
+      <ValueTable 
+        count={count} 
+        values={commodity.values} 
+        id={commodity.name}>
+      </ValueTable>
     </div>
   );
 }

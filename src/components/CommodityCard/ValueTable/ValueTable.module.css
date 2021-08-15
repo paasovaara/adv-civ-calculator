@@ -15,3 +15,12 @@
 .SelectedCell {
   background-color: goldenrod;
 }
+.SelectedCell.Hides {
+  background-color: #644226;
+}
+.SelectedCell.Ochre {
+  background-color: #A0975E;
+}
+.SelectedCell.Papyrus {
+  background-color: #E7B567;
+}
